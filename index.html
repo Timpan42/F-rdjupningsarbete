@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gissa talet</title>
+
+</head>
+<body>
+
+<body style="background-color: #4a412a;">
+
+    <h1><p style="color: #ccff00;"> Hejsan svejsan</p></h1>
+    <h1><p style="color: #ccff00;">Gissa talet</p></h1>
+    <input type="text" name="guess" autocomplete="off">
+    <p></p>
+
+<script>
+
+    let num = Math.round(Math.random()* 10);
+    let el = document.querySelector("input");
+    let p = document.querySelector("p");
+    let guesses = 0;
+
+    el.addEventListener("change", function() {
+        guesses += 1;
+        if (el.value == num) {
+            p.textContent = 'Du gissade rätt ' + guesses + " gissningar";
+        } else if (el.value > num) {
+            p.textContent = 'Gissningen är för stor';
+        } else if (el.value < num) {
+            p.textContent = 'Gissningen är för liten';
+        } else {
+            p.textContent = 'Någonting gick snett';
+        }
+        el.value = "";
+    });
+
+</script>
+</body>
+</html>
